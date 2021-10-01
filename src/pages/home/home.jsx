@@ -10,6 +10,8 @@ import ImageGame from "../../assets/images/callOfDutWWI.png"
 
 import {Image} from './styles'
 
+import { IoMdStar  } from 'react-icons/io';
+
 export default function Home() {
   return (
     <>
@@ -28,6 +30,7 @@ export default function Home() {
           <Text type="text">
             <Text type="h4buy">R$ 79,90</Text>
           </Text>
+          <IoMdStar/>
         </Card>
         <Button>
           <Text type="text">
