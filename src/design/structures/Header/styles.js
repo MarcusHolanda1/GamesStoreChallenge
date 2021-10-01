@@ -4,13 +4,15 @@ import Theme from "../../theme";
 import SvgCart from "../../../assets/icons/cart.svg";
 
 export const Nav = styled.header`
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 60px;
 
+  background-color: ${Theme.colors.white};
   border-bottom: 2px solid ${Theme.colors.border};
 
-
+  margin-bottom: 40px;
+  padding: 0px 68px 0px 50px;
 `;
 
 export const Cart = styled.button`
@@ -19,7 +21,6 @@ export const Cart = styled.button`
   width: 50px;
   height: 50px;
   margin-top: 15px;
-  margin-right: 30px;
   background-image: url(${SvgCart});
   background-repeat: no-repeat;
   background-color: transparent;

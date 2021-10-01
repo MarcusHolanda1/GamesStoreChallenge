@@ -4,11 +4,13 @@ import Theme from "../../theme";
 
 export const Container = styled.section`
     background-color: ${Theme.colors.background};
-    display: inline-block;
-    position: relative;
-    margin-top: 60px;
-    width: 100%;
-    height: 300px;
+    display: flex;
+	flex-wrap: wrap;
+	align-items: space-between;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+ 
 
     padding-left: ${Theme.spacing.n3};
     padding-right: ${Theme.spacing.n3};

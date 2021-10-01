@@ -3,28 +3,29 @@ const Theme = {
     background: "#F9F9F9",
     primary: "#7118E3",
     secondary: "#F45B69",
-    white: "#FFFFF",
+    white: "#FFFFFF",
     gray: "#636363",
     border: "#E5E5E5",
     text: "#252525",
     textSecondary: '#636363',
+    hover: '#702AFF',
   },
   spacing: {
-    n1: "8px",
+    n1: "10px",
     n2: "16px",
     n3: "28px",
     n4: "38px",
   },
   font: {
     h1: {
-      fontfamily: "Roboto",
+      fontFamily: "Roboto",
       fontStyle: "normal",
       fontWeight: "500",
       fontSize: "50px",
       lineHeight: "59px",
     },
     h2: {
-      fonFamily: "Roboto",
+      fontFamily: "Roboto",
       fontStyle: "normal",
       fontWeight: "500",
       fontSize: "38px",
@@ -44,6 +45,13 @@ const Theme = {
       fontSize: "21px",
       lineHeight: "25px",
     },
+    h4Buy: {
+      fontFamily: "Roboto",
+      fontStyle: "normal",
+      fontWeight: "900",
+      fontSize: "21px",
+      lineHeight: "25px",
+    },
     h5: {
       fontFamily: "Roboto",
       fontStyle: "normal",
@@ -59,7 +67,7 @@ const Theme = {
       lineHeight: "14px",
     },
     p: {
-      fontFamily: "Roboto",
+      fontFamily: "Roboto", //
       fontStyle: "normal",
       fontWeight: "normal",
       fontSize: "16px",
@@ -72,6 +80,14 @@ const Theme = {
       fontSize: "12px",
       lineHeight: "14px",
     },
+    buttonText: {
+      fontFamily: 'Roboto',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      fontSize: '16px',
+      lineHeight: '18px',
+      textAlign: 'center',
+    }
   },
 };
 export default Theme

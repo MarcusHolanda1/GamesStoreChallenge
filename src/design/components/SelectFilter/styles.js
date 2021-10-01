@@ -6,6 +6,8 @@ export const DivSelect = styled.div`
   width: 200px;
   height: 48px;
   float: right;
+
+  margin-right: 78px;
 `;
 
 export const Select = styled.select`

@@ -1,6 +1,6 @@
 import { DivSelect, Select } from "./styles";
 
-const SelectPopularity = (props) => {
+const SelectFilter = (props) => {
   return (
     <DivSelect>
       <Select>
@@ -13,4 +13,4 @@ const SelectPopularity = (props) => {
     </DivSelect>
   );
 };
-export default SelectPopularity;
+export default SelectFilter;
