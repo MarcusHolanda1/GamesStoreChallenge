@@ -29,6 +29,11 @@ export const GamesBuy = styled.div`
         font-size: ${Theme.font.p.fontSize};
         line-height: ${Theme.font.p.lineHeight};
     }
+
+    .close {
+        float: right;
+        padding-left: ${Theme.spacing.n1}
+    }
 `
 export const TotalBuy = styled.div`
     border-top: 2px solid ${Theme.colors.border};

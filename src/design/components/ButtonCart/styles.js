@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../theme";
 
 import SvgCart from "../../../assets/icons/cart.svg";
 

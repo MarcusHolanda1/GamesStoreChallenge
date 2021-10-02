@@ -4,6 +4,7 @@ import Title from "../../design/components/Title";
 import { Text } from "../../design/components/Text";
 import Card from "../../design/components/Card";
 import Button from "../../design/components/Button";
+import CloseButton from "../../design/components/CloseButton";
 
 import {
   Container,
@@ -18,7 +19,7 @@ export default function Cart() {
     <>
       <Header>
         <ButtonCart>
-          <span>1</span>
+          <span>8</span>
         </ButtonCart>
       </Header>
       <Title></Title>
@@ -28,64 +29,18 @@ export default function Cart() {
             <Text type="text">
               <Text type="h4">Meus produtos</Text>
             </Text>
+            
           </MyProducts>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5">
+              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
                 Call of Duty WWII<span>R$ 79,90</span>
+                
               </Text>
             </Text>
           </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
+
 
           <TotalBuy>
             <Text type="text">
