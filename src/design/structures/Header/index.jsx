@@ -1,14 +1,19 @@
 import React from "react";
 
-import { Nav, Cart, TitleHeader } from "./styles";
+import { Nav, TitleHeader } from "./styles";
 
 import SvgTitleHeader from "../../../assets/icons/PSSTOR4.svg";
 
 const Header = (props) => {
   return (
-    <Nav>
+    // <Nav>
+    //   <TitleHeader src={SvgTitleHeader}></TitleHeader>
+    //   <Button><span>oi</span>
+    //     <Cart></Cart>
+    //   </Button>
+    // </Nav>
+    <Nav>{props.children}
       <TitleHeader src={SvgTitleHeader}></TitleHeader>
-      <Cart></Cart>
     </Nav>
   );
 };

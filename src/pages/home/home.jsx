@@ -5,17 +5,20 @@ import SelectFilter from "../../design/components/SelectFilter";
 import Card from "../../design/components/Card";
 import { Text } from "../../design/components/Text";
 import Button from "../../design/components/Button";
+import ButtonCart from "../../design/components/ButtonCart";
 
-import ImageGame from "../../assets/images/callOfDutWWI.png"
+import ImageGame from "../../assets/images/callOfDutWWI.png";
 
-import {Image} from './styles'
+import { Image, Star } from "./styles";
 
-import { IoMdStar  } from 'react-icons/io';
+
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Header>
+      <ButtonCart><span>1</span></ButtonCart>
+      </Header>
       <SelectFilter></SelectFilter>
       <Title></Title>
       <ContainerGlobal>
@@ -28,9 +31,19 @@ export default function Home() {
             <Text type="p">Call of Duty WWII</Text>
           </Text>
           <Text type="text">
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Text type="small">
+              (20)
+            </Text>
+          </Text>
+
+          <Text type="text">
             <Text type="h4buy">R$ 79,90</Text>
           </Text>
-          <IoMdStar/>
         </Card>
         <Button>
           <Text type="text">
