@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import SvgCart from "../../../assets/icons/cart.svg";
+import SvgCart from "../../../../assets/icons/cart.svg";
 
 export const Cart = styled.button`
   float: right;

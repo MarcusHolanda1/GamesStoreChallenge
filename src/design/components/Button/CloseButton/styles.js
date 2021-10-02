@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { CgClose } from "react-icons/cg";
 
-import Theme from '../../theme'
+import Theme from '../../../theme'
 
 export const ButtonClose = styled.button`
   border: none;

@@ -3,8 +3,8 @@ import Title from "../../design/components/Title";
 import SelectFilter from "../../design/components/SelectFilter";
 import Card from "../../design/components/Card";
 import { Text } from "../../design/components/Text";
-import Button from "../../design/components/Button";
-import ButtonCart from "../../design/components/ButtonCart";
+import PrimaryButton from "../../design/components/Button/PrimaryButton";
+import ButtonCart from "../../design/components/Button/ButtonCart";
 
 import ImageGame from "../../assets/images/callOfDutWWI.png";
 
@@ -42,11 +42,11 @@ export default function Home() {
             <Text type="h4buy">R$ 79,90</Text>
           </Text>
         </Card>
-        <Button>
+        <PrimaryButton>
           <Text type="text">
             <Text type="buttonText">Adicione ao carrinho</Text>
           </Text>
-        </Button>
+        </PrimaryButton>
       </Container>
     </>
   );
