@@ -22,11 +22,56 @@ export const GamesBuy = styled.div`
 
     span {
         float: right;
+        color: ${Theme.colors.text};
+        font-family: ${Theme.font.p.fontFamily};
+        font-style: ${Theme.font.p.fontStyle};
+        font-weight: 900;
+        font-size: ${Theme.font.p.fontSize};
+        line-height: ${Theme.font.p.lineHeight};
+    }
+`
+export const TotalBuy = styled.div`
+    border-top: 2px solid ${Theme.colors.border};
+    padding-top: ${Theme.spacing.n2};
+    padding-bottom: ${Theme.spacing.n1};
+
+    .Freight {
+        color: ${Theme.colors.text};
+        font-family: ${Theme.font.p.fontFamily};
+        font-style: ${Theme.font.p.fontStyle};
+        font-weight: 400;
+        font-size: ${Theme.font.p.fontSize};
+        line-height: ${Theme.font.p.lineHeight};
+    }
+
+    .priceFreight {
+        float: right;
+        color: ${Theme.colors.text};
+        font-family: ${Theme.font.p.fontFamily};
+        font-style: ${Theme.font.p.fontStyle};
+        font-weight: 900;
+        font-size: ${Theme.font.p.fontSize};
+        line-height: ${Theme.font.p.lineHeight};
+        
+    }
+
+    .totalPrice{
+        float: right;
         color: ${Theme.colors.primary};
         font-family: ${Theme.font.h4Buy.fontFamily};
         font-style: ${Theme.font.h4Buy.fontStyle};
-        font-weight: ${Theme.font.h4Buy.fontWeight};
+        font-weight: 900;
         font-size: ${Theme.font.h4Buy.fontSize};
         line-height: ${Theme.font.h4Buy.lineHeight};
     }
+
+    h4{
+        padding-top: ${Theme.spacing.n1};
+    }
+`
+
+export const SpaceButton = styled.div`
+    float: right;
+    padding-right: ${Theme.spacing.n1};
+    padding-bottom: ${Theme.spacing.n4};
 `
