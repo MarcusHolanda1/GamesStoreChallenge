@@ -15,6 +15,7 @@ const Theme = {
     n2: "16px",
     n3: "28px",
     n4: "38px",
+    n5: "64px",
   },
   font: {
     h1: {

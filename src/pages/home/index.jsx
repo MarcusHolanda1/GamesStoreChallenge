@@ -1,5 +1,4 @@
 import Header from "../../design/structures/Header";
-import ContainerGlobal from "../../design/structures/ContainerGlobal";
 import Title from "../../design/components/Title";
 import SelectFilter from "../../design/components/SelectFilter";
 import Card from "../../design/components/Card";
@@ -9,19 +8,19 @@ import ButtonCart from "../../design/components/ButtonCart";
 
 import ImageGame from "../../assets/images/callOfDutWWI.png";
 
-import { Image, Star } from "./styles";
-
-
+import { Container, Image, Star } from "./styles";
 
 export default function Home() {
   return (
     <>
       <Header>
-      <ButtonCart><span>1</span></ButtonCart>
+        <ButtonCart>
+          <span>1</span>
+        </ButtonCart>
       </Header>
       <SelectFilter></SelectFilter>
       <Title></Title>
-      <ContainerGlobal>
+      <Container>
         <Card>
           <Image src={ImageGame} alt=""></Image>
           <Text type="text">
@@ -31,14 +30,12 @@ export default function Home() {
             <Text type="p">Call of Duty WWII</Text>
           </Text>
           <Text type="text">
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Star/>
-            <Text type="small">
-              (20)
-            </Text>
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Text type="small">(20)</Text>
           </Text>
 
           <Text type="text">
@@ -50,7 +47,7 @@ export default function Home() {
             <Text type="buttonText">Adicione ao carrinho</Text>
           </Text>
         </Button>
-      </ContainerGlobal>
+      </Container>
     </>
   );
 }
