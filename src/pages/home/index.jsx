@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import Header from "../../design/structures/Header";
 import Title from "../../design/components/Title";
@@ -22,13 +22,37 @@ import {
 
 export default function Home() {
 
-  const [ModalisVisible, setModalIsVisible] = useState(false)
+  const [show, setShow] = useState(false);
+   
+  const handleModalClose = (e) => {
+    setShow(false);
+  };
+  
+  const handleModalOpen = () => {
+    setShow(true);
+  };
+  
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('./products.json',{
+      headers: {
+        Accept: 'application/json'
+      }
+    }).then(res => res.json())
+      .then(res => setProducts(res))
+  },[])
+
+  console.log(products)
 
   return (
     <>
+    <div
+        hidden={!show}  
+      >
        <ContainerModal>
         <Card>
-          <AlignButtonClose>
+          <AlignButtonClose onClick={handleModalClose}>
             <CloseButton></CloseButton>
             
           </AlignButtonClose>
@@ -59,6 +83,7 @@ export default function Home() {
           </PrimaryButton>
         </Card>
       </ContainerModal> 
+      </div>
 
       <Header>
         <ButtonCart>
@@ -78,8 +103,7 @@ export default function Home() {
 
       <Container>
         <Card>
-          <Image onClick={()=> setModalIsVisible(true)} src={ImageGame} alt=""></Image>
-         {ModalisVisible ? <h1>Deu bom</h1> : null}
+          <Image onClick={handleModalOpen} src={ImageGame} alt=""></Image>
           <Text type="text">
             <Text type="h5Transparent">PLAYSTATION</Text>
           </Text>
