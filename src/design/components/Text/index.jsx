@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H1, H2, H3, H4, H4Buy, H5, H5Transparent, P, SMALL, ButtonText } from "./styles";
+import { H1, H2, H3, H4, H4Buy, H3BuyMODAL, H5, H5Transparent, P, SMALL, ButtonText } from "./styles";
 
 
 export function Text({type, ...rest}) {
@@ -15,6 +15,8 @@ export function Text({type, ...rest}) {
       return <H4>{rest.children}</H4>;
     case "h4buy":
       return <H4Buy>{rest.children}</H4Buy>;
+    case "h3BuyModal":
+      return <H3BuyMODAL>{rest.children}</H3BuyMODAL>;
     case "strong":
       return <H5>{rest.children}</H5>;
     case "h5Transparent":

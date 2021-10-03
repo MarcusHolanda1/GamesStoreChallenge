@@ -1,13 +1,12 @@
-import {DivTitle} from './styles'
+import { DivTitle } from "./styles";
 
-import { H3, H5 } from './styles'
+import { Text } from "../../components/Text";
 
 const Title = (props) => {
-    return (
-        <DivTitle>
-            <H3>Jogos</H3>
-            <H5>PRODUTOS DISPONÍVEIS</H5>
-        </DivTitle>
-    )
-}
-export default Title
+  return (
+    <DivTitle>
+      <Text>{props.children}</Text>
+    </DivTitle>
+  );
+};
+export default Title;

@@ -22,61 +22,74 @@ export default function Cart() {
           <span>8</span>
         </ButtonCart>
       </Header>
-      <Title></Title>
+      <Title>
+        <Text type="text">
+          <Text type="h3">Carrinho</Text>
+          <Text type="small">PRODUTOS SELECIONADOS</Text>
+        </Text>
+      </Title>
       <Container>
         <Card>
           <MyProducts>
             <Text type="text">
               <Text type="h4">Meus produtos</Text>
             </Text>
-            
           </MyProducts>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
+              <Text type="h5">
+                <span class="close">
+                  <CloseButton></CloseButton>
+                </span>
                 Call of Duty WWII<span>R$ 79,90</span>
-                
               </Text>
             </Text>
           </GamesBuy>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
+              <Text type="h5">
+                <span class="close">
+                  <CloseButton></CloseButton>
+                </span>
                 Call of Duty WWII<span>R$ 79,90</span>
-                
               </Text>
             </Text>
           </GamesBuy>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
+              <Text type="h5">
+                <span class="close">
+                  <CloseButton></CloseButton>
+                </span>
                 Call of Duty WWII<span>R$ 79,90</span>
-                
               </Text>
             </Text>
           </GamesBuy>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
+              <Text type="h5">
+                <span class="close">
+                  <CloseButton></CloseButton>
+                </span>
                 Call of Duty WWII<span>R$ 79,90</span>
-                
               </Text>
             </Text>
           </GamesBuy>
 
           <GamesBuy>
             <Text type="text">
-              <Text type="h5"><span class="close"><CloseButton></CloseButton></span>
+              <Text type="h5">
+                <span class="close">
+                  <CloseButton></CloseButton>
+                </span>
                 Call of Duty WWII<span>R$ 79,90</span>
-                
               </Text>
             </Text>
           </GamesBuy>
-
 
           <TotalBuy>
             <Text type="text">

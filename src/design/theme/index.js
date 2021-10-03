@@ -53,6 +53,13 @@ const Theme = {
       fontSize: "21px",
       lineHeight: "25px",
     },
+    h3BuyModal: {
+      fontFamily: "Roboto",
+      fontStyle: "normal",
+      fontWeight: "900",
+      fontSize: "28px",
+      lineHeight: "25px",
+    },
     h5: {
       fontFamily: "Roboto",
       fontStyle: "normal",

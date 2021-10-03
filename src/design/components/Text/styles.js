@@ -47,6 +47,15 @@ export const H4Buy = styled.h4`
   line-height: ${Theme.font.h4Buy.lineHeight};
 `;
 
+export const H3BuyMODAL = styled.h3`
+  color: ${Theme.colors.primary};
+  font-family: ${Theme.font.h3BuyModal.fontFamily};
+  font-style: ${Theme.font.h3BuyModal.fontStyle};
+  font-weight: ${Theme.font.h3BuyModal.fontWeight};
+  font-size: ${Theme.font.h3BuyModal.fontSize};
+  line-height: ${Theme.font.h3BuyModal.lineHeight};
+`;
+
 export const H5 = styled.h5`
   color: ${Theme.colors.text};
   font-family: ${Theme.font.h5.fontFamily};
