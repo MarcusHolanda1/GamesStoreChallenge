@@ -5,23 +5,18 @@ import Theme from "../../design/theme";
 import { IoMdStar } from "react-icons/io";
 
 export const Container = styled.section`
-  background-color: ${Theme.colors.background};
-  display: flex;
-  flex-wrap: wrap;
-  align-items: space-between;
-  justify-content: center;
-  margin: 0 auto;
-  width: 100%;
-
-  padding-left: ${Theme.spacing.n3};
-  padding-right: ${Theme.spacing.n3};
-  padding-top: ${Theme.spacing.n3};
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 16px;
 `;
 
 export const Image = styled.img`
   ///Enquanto src não estava vindo do component
   width: 160px;
   height: 230px;
+
+  margin: auto;
+  align-self: center;
 
   cursor: pointer;
   padding-bottom: ${Theme.spacing.n2};
@@ -58,3 +53,16 @@ export const AlignButtonClose = styled.div`
 
   left: 120px;
 `;
+
+
+export const ContainerTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: ${Theme.spacing.n3};
+`
+
+export const Content = styled.div`
+  padding: ${Theme.spacing.n3};
+`
