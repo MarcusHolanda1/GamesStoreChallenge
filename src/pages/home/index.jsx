@@ -92,7 +92,7 @@ export default function Home() {
 
             <PrimaryButton>
               <Text type="text">
-                <Text type="buttonText">Adicione ao carrinho</Text>
+                <Text type="buttonText">Adicionar ao carrinho</Text>
               </Text>
             </PrimaryButton>
           </CardModal>
@@ -122,7 +122,7 @@ export default function Home() {
                 {console.log(product.image)}
                 <Image
                   onClick={handleModalOpen}
-                  src={(`/assets/images/${product.image}.png`)}
+                  src={(`assets/images/${product.image}.png`)}
                   alt="image"
                 ></Image>
                 <Text type="text">
