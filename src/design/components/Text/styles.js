@@ -87,7 +87,8 @@ export const P = styled.p`
 export const SMALL = styled.small`
 
   color: ${Theme.colors.text};
-  position: absolute;
+  top: -5px;
+  position: relative;
   padding-top: 3px;
   font-family: ${Theme.font.small.fontFamily};
   font-style: ${Theme.font.small.fontStyle};

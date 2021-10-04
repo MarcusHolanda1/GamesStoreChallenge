@@ -7,8 +7,8 @@ import Card from "../../design/components/Card";
 import { Text } from "../../design/components/Text";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import ButtonCart from "../../design/components/Button/ButtonCart";
-import ModalBuy from "../../design/components/ModalBuy";
 import CloseButton from "../../design/components/Button/CloseButton";
+import CardModal from '../../design/components/Card/CardModal'
 
 import ImageGame from "../../assets/images/callOfDutWWI.png";
 
@@ -19,6 +19,7 @@ import {
   ContainerModal,
   AlignButtonClose,
 } from "./styles";
+
 
 export default function Home() {
 
@@ -31,28 +32,53 @@ export default function Home() {
   const handleModalOpen = () => {
     setShow(true);
   };
-  
-  const [products, setProducts] = useState([])
+
+
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
-    fetch('./products.json',{
-      headers: {
-        Accept: 'application/json'
-      }
-    }).then(res => res.json())
-      .then(res => setProducts(res))
-  },[])
+        fetch('./products.json',{
+          headers: {
+            Accept: 'application/json'
+          }
+        }).then(res => res.json())
+          .then(res => setGames(res))
+      },[]) 
+console.log(games)
 
-  console.log(products)
+  function onFilterChange(event) {
+    const option = event.target.selectedOptions[0];
+    const field = option.value;
+    const isASC = option.dataset.filter === 'ASC';
+    const isNumberField = ['price', 'score'].includes(field);
+
+    const sortedGames = [...games].sort(function (a, b) {
+      if (isASC) {
+        return isNumberField
+          ? a[field] - b[field]
+          : a[field].localeCompare(b[field]);
+      } else {
+        return isNumberField
+          ? b[field] - a[field]
+          : b[field].localeCompare(a[field]);
+      }
+    });
+
+    setGames(sortedGames);
+  }
+
+
+
 
   return (
-    <>
+    
+   <>
     <div
         hidden={!show}  
       >
        <ContainerModal>
-        <Card>
-          <AlignButtonClose onClick={handleModalClose}>
+        <CardModal>
+          <AlignButtonClose onClick={() => handleModalClose('/repos')}>
             <CloseButton></CloseButton>
             
           </AlignButtonClose>
@@ -76,12 +102,14 @@ export default function Home() {
             <Text type="h3BuyModal">R$ 79,90</Text>
           </Text>
 
+        
           <PrimaryButton>
             <Text type="text">
               <Text type="buttonText">Adicione ao carrinho</Text>
             </Text>
           </PrimaryButton>
-        </Card>
+          
+        </CardModal>
       </ContainerModal> 
       </div>
 
@@ -91,7 +119,33 @@ export default function Home() {
         </ButtonCart>
       </Header>
 
-      <SelectFilter></SelectFilter>
+      {/* <SelectFilter></SelectFilter> */}
+
+      
+      <SelectFilter onChange={onFilterChange}>
+        <option data-filter='ASC' value='name'>
+          Name (A-Z)
+        </option>
+        <option data-filter='DESC' value='name'>
+          Name (Z-A)
+        </option>
+        <option data-filter='ASC' value='price'>
+          Price (-/+)
+        </option>
+        <option data-filter='DESC' value='price'>
+          Price (+/-)
+        </option>
+        <option data-filter='ASC' value='score'>
+          Score (-/+)
+        </option>
+        <option data-filter='DESC' value='score'>
+          Score (+/-)
+        </option>
+      </SelectFilter>
+
+
+    
+
 
       <Title>
         <Text type="text">
@@ -102,13 +156,17 @@ export default function Home() {
 
 
       <Container>
-        <Card>
-          <Image onClick={handleModalOpen} src={ImageGame} alt=""></Image>
+      
+      {games.map((game, key) => {
+           return (
+             <Card key={key}>
+          <>
+          <Image onClick={handleModalOpen} src={game.image} alt=""></Image>
           <Text type="text">
             <Text type="h5Transparent">PLAYSTATION</Text>
           </Text>
           <Text type="text">
-            <Text type="p">Call of Duty WWII</Text>
+            <Text type="p">{game.name}</Text>
           </Text>
           <Text type="text">
             <Star />
@@ -116,15 +174,19 @@ export default function Home() {
             <Star />
             <Star />
             <Star />
-            <Text type="small">(20)</Text>
+            <Text type="small">({game.score})</Text>
           </Text>
 
           <Text type="text">
-            <Text type="h4buy">R$ 79,90</Text>
+            <Text type="h4buy">R$ {game.price}</Text>
           </Text>
-        </Card>
+        </>  </Card>
+           )
+         })}
+        
 
       </Container>
     </>
-  );
+   );
+   
 }

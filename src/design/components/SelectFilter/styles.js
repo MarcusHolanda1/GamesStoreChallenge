@@ -5,12 +5,13 @@ import Theme from "../../theme/index";
 export const DivSelect = styled.div`
   width: 200px;
   height: 48px;
-  float: right;
+  
 
   margin-right: 78px;
 `;
 
 export const Select = styled.select`
+  float: right;
   width: 200px;
   height: 48px;
 
@@ -18,6 +19,7 @@ export const Select = styled.select`
   border-radius: 16px;
   border: none;
   padding-left: ${Theme.spacing.n3};
+  margin-right: 85px;
   cursor: pointer;
 
   color: ${Theme.colors.textSecondary};

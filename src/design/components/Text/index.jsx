@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from 'react'
 
 import { H1, H2, H3, H4, H4Buy, H3BuyMODAL, H5, H5Transparent, P, SMALL, ButtonText } from "./styles";
 
 
 export function Text({type, ...rest}) {
+  const render = useCallback(() => {
   switch (type) {
     case "h1":
       return <H1>{rest.children}</H1>;
@@ -28,5 +29,7 @@ export function Text({type, ...rest}) {
     default:
       return <P>{rest.children}</P>;
   }
+}, [rest.children, type])
+return render()
 }
 

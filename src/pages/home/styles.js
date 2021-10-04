@@ -23,12 +23,13 @@ export const Image = styled.img`
   width: 160px;
   height: 230px;
 
+  cursor: pointer;
   padding-bottom: ${Theme.spacing.n2};
 `;
 
 export const Star = styled(IoMdStar)`
   color: ${Theme.colors.primary};
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 ///
@@ -39,11 +40,13 @@ export const ContainerModal = styled.section`
   align-items: center;
   justify-content: center;
   min-width: 100%;
-  min-height: 100%;
+  height: max(30vh, 925px);
   background: rgba(0, 0, 0, 0.48); ;
+  overflow: hidden;
 `;
 
 export const StarModal = styled(IoMdStar)`
+  position: absolute;
   color: ${Theme.colors.primary};
   font-size: 26px;
 
