@@ -8,22 +8,22 @@ const SelectFilter = (props) => {
         FILTRAR
       </option>
       <option data-filter="ASC" value="name">
-        Name (A-Z)
+        Nome (A-Z)
       </option>
       <option data-filter="DESC" value="name">
-        Name (Z-A)
+        Nome (Z-A)
       </option>
       <option data-filter="ASC" value="price">
-        Price (-/+)
+        Preço (-/+)
       </option>
       <option data-filter="DESC" value="price">
-        Price (+/-)
+        Preço (+/-)
       </option>
       <option data-filter="ASC" value="score">
-        Score (-/+)
+        Pontuação (-/+)
       </option>
       <option data-filter="DESC" value="score">
-        Score (+/-)
+        Pontuação (+/-)
       </option>
     </Select>
   );
