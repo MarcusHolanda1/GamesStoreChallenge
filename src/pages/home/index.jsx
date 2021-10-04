@@ -34,7 +34,7 @@ export default function Home() {
   };
 
 
-  const [games, setGames] = useState([]);
+  const [products, setProduct] = useState([]);
 
   useEffect(() => {
         fetch('./products.json',{
@@ -42,9 +42,9 @@ export default function Home() {
             Accept: 'application/json'
           }
         }).then(res => res.json())
-          .then(res => setGames(res))
+          .then(res => setProduct(res))
       },[]) 
-console.log(games)
+console.log(products)
 
   function onFilterChange(event) {
     const option = event.target.selectedOptions[0];
@@ -52,7 +52,7 @@ console.log(games)
     const isASC = option.dataset.filter === 'ASC';
     const isNumberField = ['price', 'score'].includes(field);
 
-    const sortedGames = [...games].sort(function (a, b) {
+    const sortedGames = [...products].sort(function (a, b) {
       if (isASC) {
         return isNumberField
           ? a[field] - b[field]
@@ -64,10 +64,8 @@ console.log(games)
       }
     });
 
-    setGames(sortedGames);
+    setProduct(sortedGames);
   }
-
-
 
 
   return (
@@ -118,34 +116,8 @@ console.log(games)
           <span>1</span>
         </ButtonCart>
       </Header>
-
-      {/* <SelectFilter></SelectFilter> */}
-
       
-      <SelectFilter onChange={onFilterChange}>
-        <option data-filter='ASC' value='name'>
-          Name (A-Z)
-        </option>
-        <option data-filter='DESC' value='name'>
-          Name (Z-A)
-        </option>
-        <option data-filter='ASC' value='price'>
-          Price (-/+)
-        </option>
-        <option data-filter='DESC' value='price'>
-          Price (+/-)
-        </option>
-        <option data-filter='ASC' value='score'>
-          Score (-/+)
-        </option>
-        <option data-filter='DESC' value='score'>
-          Score (+/-)
-        </option>
-      </SelectFilter>
-
-
-    
-
+      <SelectFilter onChange={onFilterChange}></SelectFilter>
 
       <Title>
         <Text type="text">
@@ -157,16 +129,16 @@ console.log(games)
 
       <Container>
       
-      {games.map((game, key) => {
+      {products.map((product, key) => {
            return (
              <Card key={key}>
           <>
-          <Image onClick={handleModalOpen} src={game.image} alt=""></Image>
+          <Image onClick={handleModalOpen} src={product.image} alt=""></Image>
           <Text type="text">
             <Text type="h5Transparent">PLAYSTATION</Text>
           </Text>
           <Text type="text">
-            <Text type="p">{game.name}</Text>
+            <Text type="p">{product.name}</Text>
           </Text>
           <Text type="text">
             <Star />
@@ -174,11 +146,11 @@ console.log(games)
             <Star />
             <Star />
             <Star />
-            <Text type="small">({game.score})</Text>
+            <Text type="small">({product.score})</Text>
           </Text>
 
           <Text type="text">
-            <Text type="h4buy">R$ {game.price}</Text>
+            <Text type="h4buy">R$ {product.price}</Text>
           </Text>
         </>  </Card>
            )
