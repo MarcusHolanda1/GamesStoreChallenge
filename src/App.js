@@ -1,14 +1,15 @@
 import "./styles/global.css";
 import Routes from "./Routes";
-import { CartContextProvider } from "./context/CartContext";
+import { ProductContext } from "./context/ProductContext";
+import { CartContext } from "./context/CartContext/index";
 
 function App() {
   return (
-    <CartContextProvider>
-        
-      <Routes />
-    
-    </CartContextProvider>
+    <ProductContext>
+      <CartContext>
+        <Routes />
+      </CartContext>
+    </ProductContext>
   );
 }
 

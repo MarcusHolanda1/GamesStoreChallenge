@@ -66,3 +66,24 @@ export const ContainerTitle = styled.div`
 export const Content = styled.div`
   padding: ${Theme.spacing.n3};
 `
+
+export const ContentTextTitle = styled.div`
+  padding-left: 30px;
+`
+
+export const ContainerHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: ${Theme.spacing.n3};
+  
+  padding-top: 30px;
+`
+
+export const AlignTextsCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`

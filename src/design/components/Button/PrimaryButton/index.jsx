@@ -3,7 +3,7 @@ import { Text } from "../../Text";
 
 const PrimaryButton = (props) => {
   return (
-    <ButtonStyle>
+    <ButtonStyle {...props}>
       <Text>{props.children}</Text>
     </ButtonStyle>
   );

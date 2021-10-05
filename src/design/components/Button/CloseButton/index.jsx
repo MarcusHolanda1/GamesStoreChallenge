@@ -4,7 +4,7 @@ import { ButtonClose, IconClose } from "./styles";
 
 const CloseButton = (props) => {
   return (
-    <ButtonClose>
+    <ButtonClose {...props}>
       <IconClose>{props.children}</IconClose>
     </ButtonClose>
   );

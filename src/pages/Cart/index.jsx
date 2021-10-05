@@ -6,6 +6,10 @@ import Card from "../../design/components/Card";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import CloseButton from "../../design/components/Button/CloseButton";
 
+import React, {useContext} from 'react'
+
+import { ContextCart } from "../../context/CartContext";
+
 import {
   Container,
   MyProducts,
@@ -15,6 +19,9 @@ import {
 } from "./styles";
 
 export default function Cart() {
+
+  const {cartProducts, removeCartProduct} = useContext(ContextCart)
+
   return (
     <>
       <Header>
@@ -36,60 +43,19 @@ export default function Cart() {
             </Text>
           </MyProducts>
 
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                <span class="close">
-                  <CloseButton></CloseButton>
-                </span>
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
 
+        {cartProducts.map((product) => (
           <GamesBuy>
             <Text type="text">
               <Text type="h5">
                 <span class="close">
-                  <CloseButton></CloseButton>
+                  <CloseButton onClick={() => removeCartProduct(cartProducts)}></CloseButton>
                 </span>
-                Call of Duty WWII<span>R$ 79,90</span>
+                {product?.name}<span>R$ {product?.price}</span>
               </Text>
             </Text>
           </GamesBuy>
-
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                <span class="close">
-                  <CloseButton></CloseButton>
-                </span>
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                <span class="close">
-                  <CloseButton></CloseButton>
-                </span>
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
-
-          <GamesBuy>
-            <Text type="text">
-              <Text type="h5">
-                <span class="close">
-                  <CloseButton></CloseButton>
-                </span>
-                Call of Duty WWII<span>R$ 79,90</span>
-              </Text>
-            </Text>
-          </GamesBuy>
+        ) )}
 
           <TotalBuy>
             <Text type="text">

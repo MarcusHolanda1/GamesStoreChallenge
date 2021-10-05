@@ -1,28 +1,41 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 
-export const context = createContext();
+export const ContextCart = createContext();
 
-export const CartContextProvider = props => {
-  const [ products, setProduct ] = useState([]);
+export const CartContext = props => {
+  const [cartProducts, setCartProduct ] = useState([]);
+  const [totalCartProducts, setTotalCartProducts] = useState(0);  
 
-   useEffect(() => {
-    fetch("./products.json", {
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => setProduct(res));
-  }, []);
+  const addCartProduct = (item) => {console.log(item)
+    setCartProduct([...cartProducts, item])
+  };  
+
+
+  const removeCartProduct = (item) => {console.log()
+    const index = cartProducts.findIndex((each) => each.cartproduct === item.cartproduct);
+    cartProducts.splice(index, 1);
+    setCartProduct([...cartProducts]);
+  };  
+
+  const calculateTotalProducts = () => {
+    const calculate = cartProducts.reduce(
+      (total, each) => each.cartproduct.onSaleValue * each.quantity + total,
+      0,
+    );
+    setTotalCartProducts(calculate);
+  };
 
   return (
-    <context.Provider
+    <ContextCart.Provider
       value={{
-        products,
-        setProduct,
+        cartProducts,
+        totalCartProducts,
+        addCartProduct,
+        removeCartProduct,
+        calculateTotalProducts,
       }}
     >
       {props.children}
-    </context.Provider>
+    </ContextCart.Provider>
   );
-};//product context
+};

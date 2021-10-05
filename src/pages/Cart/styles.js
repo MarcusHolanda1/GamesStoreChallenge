@@ -5,8 +5,8 @@ import Theme from "../../design/theme"
 export const Container = styled.section`
     display: inline-block;
 
-    padding-left: ${Theme.spacing.n5};
-    padding-right: ${Theme.spacing.n5};
+    padding-left: ${Theme.spacing.n3};
+    padding-right: ${Theme.spacing.n3};
     padding-top: ${Theme.spacing.n3};
     width: 100%;
 `
@@ -79,4 +79,5 @@ export const SpaceButton = styled.div`
     float: right;
     padding-right: ${Theme.spacing.n1};
     padding-bottom: ${Theme.spacing.n4};
+    padding-top: ${Theme.spacing.n2};
 `

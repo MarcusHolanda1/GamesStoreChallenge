@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 
-import { context } from "../../context/CartContext";
+import { ContextProduct } from "../../context/ProductContext";
+import { ContextCart } from "../../context/CartContext";
 
 import Header from "../../design/structures/Header";
 import Title from "../../design/components/Title";
@@ -10,43 +11,31 @@ import { Text } from "../../design/components/Text";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import ButtonCart from "../../design/components/Button/ButtonCart";
 import CloseButton from "../../design/components/Button/CloseButton";
-import CardModal from "../../design/components/Card/CardModal";
 import Modal from "../../design/components/Modal";
 
 import {
   Container,
   Image,
   Star,
-  ContainerModal,
   AlignButtonClose,
   ContainerTitle,
-  Content
+  Content,
+  ContentTextTitle,
+  ContainerHeader,
+  AlignTextsCard,
 } from "./styles";
-import { render } from "@testing-library/react";
 
 export default function Home() {
-  const [show, setShow] = useState();
+  const { products, setProduct } = useContext(ContextProduct);
+  const {cartProducts, setCartProduct, addCartProduct} = useContext(ContextCart);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleSelectProduct = useCallback((product) => {
     setSelectedProduct(product);
   }, []);
 
-  // const [products, setProduct] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("./products.json", {
-  //     headers: {
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((res) => setProduct(res));
-  // }, []);
-
-  const { products, setProduct } = useContext(context);
-
-  function onFilterChange(event) {
+  const onFilterChange = (event) => {
     const option = event.target.selectedOptions[0];
     const field = option.value;
     const isASC = option.dataset.filter === "ASC";
@@ -63,13 +52,15 @@ export default function Home() {
           : b[field].localeCompare(a[field]);
       }
     });
-
     setProduct(sortedProducts);
-  }
+  };
+
+ 
 
   const renderModal = useCallback(() => {
     return (
       <Modal>
+        <AlignTextsCard>
         <AlignButtonClose onClick={() => handleSelectProduct(null)}>
           <CloseButton></CloseButton>
         </AlignButtonClose>
@@ -96,73 +87,79 @@ export default function Home() {
           <Text type="h3BuyModal">{selectedProduct?.price}</Text>
         </Text>
 
-        <PrimaryButton>
+        <PrimaryButton onClick={() => addCartProduct(selectedProduct)}>
           <Text type="text">
             <Text type="buttonText">Adicionar ao carrinho</Text>
           </Text>
         </PrimaryButton>
+        </AlignTextsCard>
       </Modal>
     );
-  }, [
-    handleSelectProduct,
-    selectedProduct?.image,
-    selectedProduct?.name,
-    selectedProduct?.price,
-  ]);
+  }, [addCartProduct, handleSelectProduct, selectedProduct]);
 
   return (
     <>
-      <Header>
-        <ButtonCart>
-          <span>1</span>
-        </ButtonCart>
-      </Header>
-    <Content>
-      <ContainerTitle>
-        <Title>
-          <Text type="text">
-            <Text type="h3">Jogos</Text>
-            <Text type="small">PRODUTOS DISPONÍVEIS</Text>
-          </Text>
-        </Title>
+      
+        <ContainerHeader>
+          <Header>
+            <ButtonCart>
+              <span>1</span>
+            </ButtonCart>
+          </Header>
+        </ContainerHeader>
 
-        <SelectFilter onChange={onFilterChange}></SelectFilter>
-      </ContainerTitle>
+      <Content>
+        <ContainerTitle>
+          <Title>
+            <ContentTextTitle>
+              <Text type="text">
+                <Text type="h3">Jogos</Text>
+                <Text type="small">PRODUTOS DISPONÍVEIS</Text>
+              </Text>
+            </ContentTextTitle>
+          </Title>
 
-      <Container>
-        {products.map((product) => {
-          return (
-            <Card onClick={() => handleSelectProduct(product)} key={product.id}>
-              {console.log(product.id)}
-              <>
-                <Image
-                  value={product.name}
-                  src={`assets/images/${product.image}.png`}
-                  alt="image"
-                />
-                <Text type="text">
-                  <Text type="h5Transparent">PLAYSTATION</Text>
-                </Text>
-                <Text type="text">
-                  <Text type="p">{product.name}</Text>
-                </Text>
-                <Text type="text">
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Star />
-                  <Text type="small">({product.score})</Text>
-                </Text>
+          <SelectFilter onChange={onFilterChange}></SelectFilter>
+        </ContainerTitle>
 
-                <Text type="text">
-                  <Text type="h4buy">R$ {product.price}</Text>
-                </Text>
-              </>{" "}
-            </Card>
-          );
-        })}
-      </Container>
+        <Container>
+          {products.map((product) => {
+            return (
+              <Card
+                onClick={() => handleSelectProduct(product)}
+                key={product.id}
+              >
+                <>
+                  <Image
+                    value={product.name}
+                    src={`assets/images/${product.image}.png`}
+                    alt="image"
+                  />
+                  <AlignTextsCard>
+                  <Text type="text">
+                    <Text type="h5Transparent">PLAYSTATION</Text>
+                  </Text>
+                  <Text type="text">
+                    <Text type="p">{product.name}</Text>
+                  </Text>
+                  <Text type="text">
+                    <Star />
+                    <Star />
+                    <Star />
+                    <Star />
+                    <Star />
+                    <Text type="small">({product.score})</Text>
+                  </Text>
+
+                  <Text type="text">
+                    <Text type="h4buy">R$ {product.price}</Text>
+                  </Text>
+                  </AlignTextsCard>
+                </>{" "}
+              </Card>
+            );
+          })}
+        </Container>
       </Content>
 
       {selectedProduct && renderModal()}

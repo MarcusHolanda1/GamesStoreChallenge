@@ -11,10 +11,9 @@ export const DivCard = styled.div`
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   
-  /* &:hover{
-    background-color: #ECE9F0;
+   /* &:hover{
     transform: scale(1.1);
-  } */
+  }  */
 `;
 
 export const CardButton = styled.button`
