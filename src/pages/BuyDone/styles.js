@@ -9,7 +9,7 @@ export const Container = styled.section`
 
   padding-left: ${Theme.spacing.n3};
   padding-right: ${Theme.spacing.n3};
-  padding-top: ${Theme.spacing.n3};
+  padding-top: ${Theme.spacing.n2};
   width: 100%;
 
   h1 {
@@ -19,6 +19,8 @@ export const Container = styled.section`
     font-weight: ${Theme.font.h1.fontWeight};
     font-size: ${Theme.font.h1.fontSize};
     line-height: ${Theme.font.h1.lineHeight};
+    position: relative;
+    top: 50px;
   }
 
   h2 {
@@ -28,5 +30,7 @@ export const Container = styled.section`
     font-weight: ${Theme.font.h2.fontWeight};
     font-size: ${Theme.font.h2.fontSize};
     line-height: ${Theme.font.h2.lineHeight};
+    position: relative;
+    top: -40px;
   }
 `;
