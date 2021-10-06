@@ -22,6 +22,7 @@
 - styled-components
 - react-icons
 - toastify
+- react-lottie
 
  <h3 align="left">Protótipo</h3>
 <p>O protótipo deste projeto está disponível <a href="https://www.figma.com/file/If3wdSbBaIq0Fl4GpqgSJ7/PSSTOR4?node-id=0%3A1">clicando aqui</a>
