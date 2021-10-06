@@ -6,9 +6,11 @@ import Card from "../../design/components/Card";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import CloseButton from "../../design/components/Button/CloseButton";
 
-import React, {useContext} from 'react'
+import React, { useContext } from "react";
 
 import { ContextCart } from "../../context/CartContext";
+
+import {treatPrice} from '../../utils/index'
 
 import {
   Container,
@@ -19,8 +21,8 @@ import {
 } from "./styles";
 
 export default function Cart() {
-
-  const {cartProducts, removeCartProduct, totalCartProducts, freight} = useContext(ContextCart)
+  const { cartProducts, removeCartProduct, totalCartProducts, freight } =
+    useContext(ContextCart);
 
   return (
     <>
@@ -43,26 +45,28 @@ export default function Cart() {
             </Text>
           </MyProducts>
 
-
-        {cartProducts.map((product) => (
-          <GamesBuy key={product.id}>
-            <Text type="text">
-              <Text type="h5">
-                <span class="close">
-                  <CloseButton onClick={() => removeCartProduct(product)}></CloseButton>
-                </span>
-                {product?.name}<span>R$ {product?.price}</span>
+          {cartProducts.map((product) => (
+            <GamesBuy key={product.id}>
+              <Text type="text">
+                <Text type="h5">
+                  <span class="close">
+                    <CloseButton
+                      onClick={() => removeCartProduct(product)}
+                    ></CloseButton>
+                  </span>
+                  {product?.name}
+                  <span>{treatPrice(product?.price)}</span>
+                </Text>
               </Text>
-            </Text>
-          </GamesBuy>
-        ) )}
+            </GamesBuy>
+          ))}
 
           <TotalBuy>
             <Text type="text">
               <span class="Freight">Frete</span>
-              <span class="priceFreight">R$ {freight}</span>
+              <span class="priceFreight">{treatPrice(freight)}</span>
               <Text type="h4">
-                Total<span class="totalPrice">R$ {totalCartProducts}</span>
+                Total<span class="totalPrice">{treatPrice(totalCartProducts)}</span>
               </Text>
             </Text>
           </TotalBuy>

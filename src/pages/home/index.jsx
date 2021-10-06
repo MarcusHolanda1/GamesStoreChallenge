@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
+import React, { useState, useContext, useCallback } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -14,6 +14,8 @@ import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import ButtonCart from "../../design/components/Button/ButtonCart";
 import CloseButton from "../../design/components/Button/CloseButton";
 import Modal from "../../design/components/Modal";
+
+import {treatPrice} from '../../utils/index'
 
 import {
   Container,
@@ -87,7 +89,7 @@ export default function Home() {
           </Text>
 
           <Text type="text">
-            <Text type="h3BuyModal">R$ {selectedProduct?.price}</Text>
+            <Text type="h3BuyModal">{treatPrice(selectedProduct?.price)}</Text>
           </Text>
           <PrimaryButton
             onClick={function () {
@@ -139,7 +141,7 @@ export default function Home() {
                 <>
                   <Image
                     value={product.name}
-                    src={`assets/images/${product.image}.png`}
+                    src={`assets/images/${product?.image}.png`}
                     alt="image"
                   />
                   <AlignTextsCard>
@@ -147,7 +149,7 @@ export default function Home() {
                       <Text type="h5Transparent">PLAYSTATION</Text>
                     </Text>
                     <Text type="text">
-                      <Text type="p">{product.name}</Text>
+                      <Text type="p">{product?.name}</Text>
                     </Text>
                     <Text type="text">
                       <Star />
@@ -155,11 +157,11 @@ export default function Home() {
                       <Star />
                       <Star />
                       <Star />
-                      <Text type="small">({product.score})</Text>
+                      <Text type="small">({product?.score})</Text>
                     </Text>
 
                     <Text type="text">
-                      <Text type="h4buy">R$ {product.price}</Text>
+                      <Text type="h4buy">{treatPrice(product?.price)}</Text>
                     </Text>
                   </AlignTextsCard>
                 </>{" "}

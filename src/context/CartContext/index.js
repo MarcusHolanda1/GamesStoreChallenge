@@ -2,45 +2,46 @@ import React, { useState, createContext, useEffect, useCallback } from "react";
 
 export const ContextCart = createContext();
 
-export const CartContext = props => {
-  const [cartProducts, setCartProduct ] = useState([]);
-  const [totalCartProducts, setTotalCartProducts] = useState(0);  
-  const [freight, setFreight] = useState(0)
+export const CartContext = (props) => {
+  const [cartProducts, setCartProduct] = useState([]);
+  const [totalCartProducts, setTotalCartProducts] = useState(0);
+  const [freight, setFreight] = useState(0);
 
-  const addCartProduct = (item) => {console.log(item)
-    setCartProduct([...cartProducts, item])
-  };  
+  const addCartProduct = (item) => {
+    setCartProduct([...cartProducts, item]);
+  };
 
   const removeCartProduct = (item) => {
     const index = cartProducts.findIndex((each) => each.id === item.id);
     cartProducts.splice(index, 1);
     setCartProduct([...cartProducts]);
-  };  
+  };
 
   const calculateFreight = useCallback(() => {
-    if (totalCartProducts >= Number(process.env.REACT_APP_FREIGHT_VALUE)){
-      setFreight(0)
+    if (totalCartProducts >= Number(process.env.REACT_APP_FREIGHT_VALUE)) {
+      setFreight(0);
     } else {
-      const total = cartProducts.length * Number(process.env.REACT_APP_ITEM_FREIGHT_VALUE)
-      setFreight(total) 
+      const total =
+        cartProducts.length * Number(process.env.REACT_APP_ITEM_FREIGHT_VALUE);
+      setFreight(total);
     }
-  },[totalCartProducts,cartProducts])
+  }, [totalCartProducts, cartProducts]);
 
   const calculateTotalProducts = useCallback(() => {
-    let totalValue = 0
+    let totalValue = 0;
     for (const eachProduct of cartProducts) {
-      totalValue += eachProduct.price
+      totalValue += eachProduct.price;
     }
-    setTotalCartProducts(totalValue)
-  },[cartProducts])
+    setTotalCartProducts(totalValue);
+  }, [cartProducts]);
 
   useEffect(() => {
-    calculateTotalProducts()
-  },[calculateTotalProducts])
- 
+    calculateTotalProducts();
+  }, [calculateTotalProducts]);
+
   useEffect(() => {
-    calculateFreight()
-  },[calculateFreight])
+    calculateFreight();
+  }, [calculateFreight]);
 
   return (
     <ContextCart.Provider
