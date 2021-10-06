@@ -66,7 +66,7 @@ export default function Cart() {
               <span class="Freight">Frete</span>
               <span class="priceFreight">{treatPrice(freight)}</span>
               <Text type="h4">
-                Total<span class="totalPrice">{treatPrice(totalCartProducts)}</span>
+                Total em produto<span class="totalPrice">{treatPrice(totalCartProducts)}</span>
               </Text>
             </Text>
           </TotalBuy>

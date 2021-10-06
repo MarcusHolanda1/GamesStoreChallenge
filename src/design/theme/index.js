@@ -78,7 +78,7 @@ const Theme = {
       fontFamily: "Roboto", //
       fontStyle: "normal",
       fontWeight: "normal",
-      fontSize: "16px",
+      fontSize: "15px",
       lineHeight: "20px",
     },
     small: {
@@ -93,8 +93,6 @@ const Theme = {
       fontStyle: 'normal',
       fontWeight: '500',
       fontSize: '16px',
-      lineHeight: '18px',
-      textAlign: 'center',
     }
   },
 };

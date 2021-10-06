@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 
-import { H1, H2, H3, H4, H4Buy, H3BuyMODAL, H5, H5Transparent, P, SMALL, ButtonText } from "./styles";
+import { H1, H2, H3, H4, H4Buy, H3BuyMODAL, H5, H5Transparent, P, SMALL, SMALLBOLD, ButtonText } from "./styles";
 
 
 export function Text({type, ...rest}) {
@@ -24,6 +24,8 @@ export function Text({type, ...rest}) {
       return <H5Transparent>{rest.children}</H5Transparent>;
     case "small":
       return <SMALL>{rest.children}</SMALL>;
+    case "smallBold":
+      return <SMALLBOLD>{rest.children}</SMALLBOLD>;
     case "buttonText":
       return <ButtonText>{rest.children}</ButtonText>;
     default:

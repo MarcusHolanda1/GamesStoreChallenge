@@ -21,11 +21,16 @@ import {
   Container,
   Image,
   Star,
+  StarModal,
+  StarHalfModal,
+  StarHalf,
   AlignButtonClose,
+  SpaceButtonPrimary,
   ContainerTitle,
   Content,
   ContentTextTitle,
   ContainerHeader,
+  SmallContainer,
   AlignTextsCard,
 } from "./styles";
 
@@ -77,20 +82,21 @@ export default function Home() {
             <Text type="p">{selectedProduct?.name}</Text>
           </Text>
           <Text type="text">
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
+            <StarModal/>
+            <StarModal/>
+            <StarModal/>
+            <StarModal/>
+            <StarHalfModal/>
           </Text>
 
           <Text type="text">
-            <Text type="p">Por apenas</Text>
+            <Text type="smallBold">POR APENAS</Text>
           </Text>
 
           <Text type="text">
             <Text type="h3BuyModal">{treatPrice(selectedProduct?.price)}</Text>
           </Text>
+          <SpaceButtonPrimary>
           <PrimaryButton
             onClick={function () {
               addCartProduct(selectedProduct);
@@ -102,6 +108,7 @@ export default function Home() {
               <Text type="buttonText">Adicionar ao carrinho</Text>
             </Text>
           </PrimaryButton>
+          </SpaceButtonPrimary>
         </AlignTextsCard>
       </Modal>
     );
@@ -156,8 +163,10 @@ export default function Home() {
                       <Star />
                       <Star />
                       <Star />
-                      <Star />
+                      <StarHalf />
+                      <SmallContainer>
                       <Text type="small">({product?.score})</Text>
+                      </SmallContainer>
                     </Text>
 
                     <Text type="text">

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Theme from "../../design/theme";
 
-import { IoMdStar } from "react-icons/io";
+import { IoMdStar, IoMdStarHalf } from "react-icons/io";
 
 export const Container = styled.section`
   display: grid;
@@ -11,7 +11,6 @@ export const Container = styled.section`
 `;
 
 export const Image = styled.img`
-  ///Enquanto src não estava vindo do component
   width: 160px;
   height: 230px;
 
@@ -24,7 +23,14 @@ export const Image = styled.img`
 
 export const Star = styled(IoMdStar)`
   color: ${Theme.colors.primary};
-  font-size: 20px;
+  font-size: 16px;
+  margin-top: 8px;
+`;
+
+export const StarHalf = styled(IoMdStarHalf)`
+  color: ${Theme.colors.primary};
+  font-size: 16px;
+  margin-top: 8px;
 `;
 
 ///
@@ -41,12 +47,24 @@ export const ContainerModal = styled.section`
 `;
 
 export const StarModal = styled(IoMdStar)`
-  position: absolute;
+
   color: ${Theme.colors.primary};
-  font-size: 26px;
+  font-size: 24px;
 
   margin-top: ${Theme.spacing.n1};
+  margin-bottom: ${Theme.spacing.n2};
 `;
+
+export const StarHalfModal = styled(IoMdStarHalf)`
+
+  color: ${Theme.colors.primary};
+  font-size: 24px;
+
+  margin-top: ${Theme.spacing.n1};
+  margin-bottom: ${Theme.spacing.n2};
+`;
+
+
 
 export const AlignButtonClose = styled.div`
   position: relative;
@@ -86,4 +104,17 @@ export const AlignTextsCard = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+`
+
+export const SmallContainer = styled.div`
+  position: relative;
+  display: inline;
+  top: -3px;
+ 
+`
+
+export const SpaceButtonPrimary = styled.div`
+  margin-top: 20px;
+  margin-bottom: 10px;
+ 
 `

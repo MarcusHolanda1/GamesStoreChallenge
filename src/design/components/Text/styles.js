@@ -75,7 +75,6 @@ export const H5Transparent = styled.h5`
 `;
 
 export const P = styled.p`
-  padding-top: 3px;
   color: ${Theme.colors.text};
   font-family: ${Theme.font.p.fontFamily};
   font-style: ${Theme.font.p.fontStyle};
@@ -89,6 +88,15 @@ export const SMALL = styled.small`
   font-family: ${Theme.font.small.fontFamily};
   font-style: ${Theme.font.small.fontStyle};
   font-weight: ${Theme.font.small.fontWeight};
+  font-size: ${Theme.font.small.fontSize};
+  line-height: ${Theme.font.small.lineHeight};
+`;
+
+export const SMALLBOLD = styled.small`
+  color: ${Theme.colors.text};
+  font-family: ${Theme.font.small.fontFamily};
+  font-style: ${Theme.font.small.fontStyle};
+  font-weight: ${Theme.font.h1.fontWeight};
   font-size: ${Theme.font.small.fontSize};
   line-height: ${Theme.font.small.lineHeight};
 `;
