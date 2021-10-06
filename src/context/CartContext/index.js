@@ -1,29 +1,46 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect, useCallback } from "react";
 
 export const ContextCart = createContext();
 
 export const CartContext = props => {
   const [cartProducts, setCartProduct ] = useState([]);
   const [totalCartProducts, setTotalCartProducts] = useState(0);  
+  const [freight, setFreight] = useState(0)
 
   const addCartProduct = (item) => {console.log(item)
     setCartProduct([...cartProducts, item])
   };  
 
-
-  const removeCartProduct = (item) => {console.log()
-    const index = cartProducts.findIndex((each) => each.cartproduct === item.cartproduct);
+  const removeCartProduct = (item) => {
+    const index = cartProducts.findIndex((each) => each.id === item.id);
     cartProducts.splice(index, 1);
     setCartProduct([...cartProducts]);
   };  
 
-  const calculateTotalProducts = () => {
-    const calculate = cartProducts.reduce(
-      (total, each) => each.cartproduct.onSaleValue * each.quantity + total,
-      0,
-    );
-    setTotalCartProducts(calculate);
-  };
+  const calculateFreight = useCallback(() => {
+    if (totalCartProducts >= Number(process.env.REACT_APP_FREIGHT_VALUE)){
+      setFreight(0)
+    } else {
+      const total = cartProducts.length * Number(process.env.REACT_APP_ITEM_FREIGHT_VALUE)
+      setFreight(total) 
+    }
+  },[totalCartProducts,cartProducts])
+
+  const calculateTotalProducts = useCallback(() => {
+    let totalValue = 0
+    for (const eachProduct of cartProducts) {
+      totalValue += eachProduct.price
+    }
+    setTotalCartProducts(totalValue)
+  },[cartProducts])
+
+  useEffect(() => {
+    calculateTotalProducts()
+  },[calculateTotalProducts])
+ 
+  useEffect(() => {
+    calculateFreight()
+  },[calculateFreight])
 
   return (
     <ContextCart.Provider
@@ -32,7 +49,7 @@ export const CartContext = props => {
         totalCartProducts,
         addCartProduct,
         removeCartProduct,
-        calculateTotalProducts,
+        freight,
       }}
     >
       {props.children}

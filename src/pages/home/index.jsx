@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { ContextProduct } from "../../context/ProductContext";
 import { ContextCart } from "../../context/CartContext";
@@ -26,8 +28,11 @@ import {
 } from "./styles";
 
 export default function Home() {
+  const notify = () => toast("Produto adicionado ao carrinho");
+
   const { products, setProduct } = useContext(ContextProduct);
-  const {cartProducts, setCartProduct, addCartProduct} = useContext(ContextCart);
+  const { cartProducts, setCartProduct, addCartProduct } =
+    useContext(ContextCart);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -55,43 +60,46 @@ export default function Home() {
     setProduct(sortedProducts);
   };
 
- 
-
   const renderModal = useCallback(() => {
     return (
       <Modal>
         <AlignTextsCard>
-        <AlignButtonClose onClick={() => handleSelectProduct(null)}>
-          <CloseButton></CloseButton>
-        </AlignButtonClose>
-        <Image
-          src={`assets/images/${selectedProduct?.image}.png`}
-          alt="image"
-        ></Image>
-        <Text type="text">
-          <Text type="p">{selectedProduct?.name}</Text>
-        </Text>
-        <Text type="text">
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-        </Text>
-
-        <Text type="text">
-          <Text type="p">Por apenas</Text>
-        </Text>
-
-        <Text type="text">
-          <Text type="h3BuyModal">{selectedProduct?.price}</Text>
-        </Text>
-
-        <PrimaryButton onClick={() => addCartProduct(selectedProduct)}>
+          <AlignButtonClose onClick={() => handleSelectProduct(null)}>
+            <CloseButton></CloseButton>
+          </AlignButtonClose>
+          <Image
+            src={`assets/images/${selectedProduct?.image}.png`}
+            alt="image"
+          ></Image>
           <Text type="text">
-            <Text type="buttonText">Adicionar ao carrinho</Text>
+            <Text type="p">{selectedProduct?.name}</Text>
           </Text>
-        </PrimaryButton>
+          <Text type="text">
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+          </Text>
+
+          <Text type="text">
+            <Text type="p">Por apenas</Text>
+          </Text>
+
+          <Text type="text">
+            <Text type="h3BuyModal">R$ {selectedProduct?.price}</Text>
+          </Text>
+          <PrimaryButton
+            onClick={function () {
+              addCartProduct(selectedProduct);
+              notify();
+            }}
+          >
+            <ToastContainer theme="colored" autoClose={2500} />
+            <Text type="text">
+              <Text type="buttonText">Adicionar ao carrinho</Text>
+            </Text>
+          </PrimaryButton>
         </AlignTextsCard>
       </Modal>
     );
@@ -99,14 +107,13 @@ export default function Home() {
 
   return (
     <>
-      
-        <ContainerHeader>
-          <Header>
-            <ButtonCart>
-              <span>1</span>
-            </ButtonCart>
-          </Header>
-        </ContainerHeader>
+      <ContainerHeader>
+        <Header>
+          <ButtonCart>
+            <span>{cartProducts.length}</span>
+          </ButtonCart>
+        </Header>
+      </ContainerHeader>
 
       <Content>
         <ContainerTitle>
@@ -136,24 +143,24 @@ export default function Home() {
                     alt="image"
                   />
                   <AlignTextsCard>
-                  <Text type="text">
-                    <Text type="h5Transparent">PLAYSTATION</Text>
-                  </Text>
-                  <Text type="text">
-                    <Text type="p">{product.name}</Text>
-                  </Text>
-                  <Text type="text">
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Star />
-                    <Text type="small">({product.score})</Text>
-                  </Text>
+                    <Text type="text">
+                      <Text type="h5Transparent">PLAYSTATION</Text>
+                    </Text>
+                    <Text type="text">
+                      <Text type="p">{product.name}</Text>
+                    </Text>
+                    <Text type="text">
+                      <Star />
+                      <Star />
+                      <Star />
+                      <Star />
+                      <Star />
+                      <Text type="small">({product.score})</Text>
+                    </Text>
 
-                  <Text type="text">
-                    <Text type="h4buy">R$ {product.price}</Text>
-                  </Text>
+                    <Text type="text">
+                      <Text type="h4buy">R$ {product.price}</Text>
+                    </Text>
                   </AlignTextsCard>
                 </>{" "}
               </Card>

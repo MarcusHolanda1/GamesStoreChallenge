@@ -20,13 +20,13 @@ import {
 
 export default function Cart() {
 
-  const {cartProducts, removeCartProduct} = useContext(ContextCart)
+  const {cartProducts, removeCartProduct, totalCartProducts, freight} = useContext(ContextCart)
 
   return (
     <>
       <Header>
         <ButtonCart>
-          <span>8</span>
+          <span>{cartProducts.length}</span>
         </ButtonCart>
       </Header>
       <Title>
@@ -45,11 +45,11 @@ export default function Cart() {
 
 
         {cartProducts.map((product) => (
-          <GamesBuy>
+          <GamesBuy key={product.id}>
             <Text type="text">
               <Text type="h5">
                 <span class="close">
-                  <CloseButton onClick={() => removeCartProduct(cartProducts)}></CloseButton>
+                  <CloseButton onClick={() => removeCartProduct(product)}></CloseButton>
                 </span>
                 {product?.name}<span>R$ {product?.price}</span>
               </Text>
@@ -60,9 +60,9 @@ export default function Cart() {
           <TotalBuy>
             <Text type="text">
               <span class="Freight">Frete</span>
-              <span class="priceFreight">R$ 79,90</span>
+              <span class="priceFreight">R$ {freight}</span>
               <Text type="h4">
-                Total<span class="totalPrice">R$ 79,90</span>
+                Total<span class="totalPrice">R$ {totalCartProducts}</span>
               </Text>
             </Text>
           </TotalBuy>
