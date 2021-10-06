@@ -22,6 +22,8 @@ export function Text({type, ...rest}) {
       return <H5>{rest.children}</H5>;
     case "h5Transparent":
       return <H5Transparent>{rest.children}</H5Transparent>;
+    case "p":
+      return <P>{rest.children}</P>;
     case "small":
       return <SMALL>{rest.children}</SMALL>;
     case "smallBold":
@@ -29,7 +31,7 @@ export function Text({type, ...rest}) {
     case "buttonText":
       return <ButtonText>{rest.children}</ButtonText>;
     default:
-      return <P>{rest.children}</P>;
+      return <div>{rest.children}</div>;
   }
 }, [rest.children, type])
 return render()

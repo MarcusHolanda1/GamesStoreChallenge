@@ -30,7 +30,6 @@ export default function Cart() {
 
   const history = useHistory();
   const handleOnClickCart = (route) => history.push(route);
-  
 
   return (
     <>
@@ -57,8 +56,9 @@ export default function Cart() {
             <GamesBuy key={product.id}>
               <Text type="text">
                 <Text type="h5">
-                  <span class="close">
+                  <span key={product.id} className="close">
                     <CloseButton
+                      key={product.id}
                       onClick={() => removeCartProduct(product)}
                     ></CloseButton>
                   </span>
@@ -71,11 +71,13 @@ export default function Cart() {
 
           <TotalBuy>
             <Text type="text">
-              <span class="Freight">Frete</span>
-              <span class="priceFreight">{treatPrice(freight)}</span>
+              <span className="Freight">Frete</span>
+              <span className="priceFreight">{treatPrice(freight)}</span>
               <Text type="h4">
                 Total em produto
-                <span class="totalPrice">{treatPrice(totalCartProducts)}</span>
+                <span className="totalPrice">
+                  {treatPrice(totalCartProducts)}
+                </span>
               </Text>
             </Text>
           </TotalBuy>

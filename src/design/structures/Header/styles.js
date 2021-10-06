@@ -14,6 +14,6 @@ export const Nav = styled.header`
 `;
 
 export const TitleHeader = styled.img`
-  padding: 20px 0 0 30px;
+  padding: 16px 0 0 30px;
   cursor: pointer;
 `;

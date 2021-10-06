@@ -15,8 +15,7 @@ import ButtonCart from "../../design/components/Button/ButtonCart";
 import CloseButton from "../../design/components/Button/CloseButton";
 import Modal from "../../design/components/Modal";
 
-
-import {treatPrice} from '../../utils/index'
+import { treatPrice } from "../../utils/index";
 
 import {
   Container,
@@ -40,8 +39,7 @@ export default function Home() {
   const notify = () => toast("Produto adicionado ao carrinho");
 
   const { products, setProduct } = useContext(ContextProduct);
-  const { cartProducts, setCartProduct, addCartProduct } =
-    useContext(ContextCart);
+  const { cartProducts, addCartProduct } = useContext(ContextCart);
 
   const [selectedProduct, setSelectedProduct] = useState(null);
 
@@ -49,25 +47,28 @@ export default function Home() {
     setSelectedProduct(product);
   }, []);
 
-  const onFilterChange = useCallback((event) => {
-    const option = event.target.selectedOptions[0];
-    const field = option.value;
-    const isASC = option.dataset.filter === "ASC";
-    const isNumberField = ["price", "score"].includes(field);
+  const onFilterChange = useCallback(
+    (event) => {
+      const option = event.target.selectedOptions[0];
+      const field = option.value;
+      const isASC = option.dataset.filter === "ASC";
+      const isNumberField = ["price", "score"].includes(field);
 
-    const sortedProducts = [...products].sort(function (a, b) {
-      if (isASC) {
-        return isNumberField
-          ? a[field] - b[field]
-          : a[field].localeCompare(b[field]);
-      } else {
-        return isNumberField
-          ? b[field] - a[field]
-          : b[field].localeCompare(a[field]);
-      }
-    });
-    setProduct(sortedProducts);
-  },[products, setProduct]);
+      const sortedProducts = [...products].sort(function (a, b) {
+        if (isASC) {
+          return isNumberField
+            ? a[field] - b[field]
+            : a[field].localeCompare(b[field]);
+        } else {
+          return isNumberField
+            ? b[field] - a[field]
+            : b[field].localeCompare(a[field]);
+        }
+      });
+      setProduct(sortedProducts);
+    },
+    [products, setProduct]
+  );
 
   const renderModal = useCallback(() => {
     return (
@@ -84,11 +85,11 @@ export default function Home() {
             <Text type="p">{selectedProduct?.name}</Text>
           </Text>
           <Text type="text">
-            <StarModal/>
-            <StarModal/>
-            <StarModal/>
-            <StarModal/>
-            <StarHalfModal/>
+            <StarModal />
+            <StarModal />
+            <StarModal />
+            <StarModal />
+            <StarHalfModal />
           </Text>
 
           <Text type="text">
@@ -99,17 +100,17 @@ export default function Home() {
             <Text type="h3BuyModal">{treatPrice(selectedProduct?.price)}</Text>
           </Text>
           <SpaceButtonPrimary>
-          <PrimaryButton
-            onClick={function () {
-              addCartProduct(selectedProduct);
-              notify();
-            }}
-          >
-            <ToastContainer theme="colored" autoClose={2500} />
-            <Text type="text">
-              <Text type="buttonText">Adicionar ao carrinho</Text>
-            </Text>
-          </PrimaryButton>
+            <ToastContainer theme="colored" autoClose={1700} />
+            <PrimaryButton
+              onClick={function () {
+                addCartProduct(selectedProduct);
+                notify();
+              }}
+            >
+              <Text type="text">
+                <Text type="buttonText">Adicionar ao carrinho</Text>
+              </Text>
+            </PrimaryButton>
           </SpaceButtonPrimary>
         </AlignTextsCard>
       </Modal>
@@ -132,6 +133,8 @@ export default function Home() {
             <ContentTextTitle>
               <Text type="text">
                 <Text type="h3">Jogos</Text>
+              </Text>
+              <Text type="text">
                 <Text type="small">PRODUTOS DISPONÍVEIS</Text>
               </Text>
             </ContentTextTitle>
@@ -143,12 +146,13 @@ export default function Home() {
         <Container>
           {products.map((product) => {
             return (
-              <Card
+              <Card key={product.id}
                 onClick={() => handleSelectProduct(product)}
-                key={product.id}
+                
               >
                 <>
                   <Image
+                    key={product.id}
                     value={product.name}
                     src={`assets/images/${product?.image}.png`}
                     alt="image"
@@ -167,7 +171,7 @@ export default function Home() {
                       <Star />
                       <StarHalf />
                       <SmallContainer>
-                      <Text type="small">({product?.score})</Text>
+                        <Text type="small">({product?.score})</Text>
                       </SmallContainer>
                     </Text>
 
