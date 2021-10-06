@@ -19,6 +19,20 @@ export const Image = styled.img`
 
   cursor: pointer;
   padding-bottom: ${Theme.spacing.n2};
+
+  &:hover{
+    transition: transform .5s ease;
+    transform: scale(1.1);
+  }
+`;
+
+export const ImageModal = styled.img`
+  width: 160px;
+  height: 230px;
+
+  margin: auto;
+  align-self: center;
+  padding-bottom: ${Theme.spacing.n2};
 `;
 
 export const Star = styled(IoMdStar)`

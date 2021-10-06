@@ -76,8 +76,11 @@ export const TotalBuy = styled.div`
 `
 
 export const SpaceButton = styled.div`
-    float: right;
-    padding-right: ${Theme.spacing.n1};
-    padding-bottom: ${Theme.spacing.n4};
-    padding-top: ${Theme.spacing.n2};
+    padding: ${Theme.spacing.n2};
+`
+
+export const ContainerButton = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 `

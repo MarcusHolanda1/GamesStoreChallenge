@@ -15,11 +15,13 @@ import ButtonCart from "../../design/components/Button/ButtonCart";
 import CloseButton from "../../design/components/Button/CloseButton";
 import Modal from "../../design/components/Modal";
 
+
 import {treatPrice} from '../../utils/index'
 
 import {
   Container,
   Image,
+  ImageModal,
   Star,
   StarModal,
   StarHalfModal,
@@ -47,7 +49,7 @@ export default function Home() {
     setSelectedProduct(product);
   }, []);
 
-  const onFilterChange = (event) => {
+  const onFilterChange = useCallback((event) => {
     const option = event.target.selectedOptions[0];
     const field = option.value;
     const isASC = option.dataset.filter === "ASC";
@@ -65,7 +67,7 @@ export default function Home() {
       }
     });
     setProduct(sortedProducts);
-  };
+  },[products, setProduct]);
 
   const renderModal = useCallback(() => {
     return (
@@ -74,10 +76,10 @@ export default function Home() {
           <AlignButtonClose onClick={() => handleSelectProduct(null)}>
             <CloseButton></CloseButton>
           </AlignButtonClose>
-          <Image
+          <ImageModal
             src={`assets/images/${selectedProduct?.image}.png`}
             alt="image"
-          ></Image>
+          ></ImageModal>
           <Text type="text">
             <Text type="p">{selectedProduct?.name}</Text>
           </Text>

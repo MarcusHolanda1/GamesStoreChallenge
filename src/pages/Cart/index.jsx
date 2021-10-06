@@ -5,12 +5,13 @@ import { Text } from "../../design/components/Text";
 import Card from "../../design/components/Card";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import CloseButton from "../../design/components/Button/CloseButton";
+import SecondaryButton from "../../design/components/Button/SecondaryButton";
 
 import React, { useContext } from "react";
 
 import { ContextCart } from "../../context/CartContext";
 
-import {treatPrice} from '../../utils/index'
+import { treatPrice } from "../../utils/index";
 
 import {
   Container,
@@ -18,6 +19,7 @@ import {
   GamesBuy,
   TotalBuy,
   SpaceButton,
+  ContainerButton,
 } from "./styles";
 
 export default function Cart() {
@@ -66,19 +68,29 @@ export default function Cart() {
               <span class="Freight">Frete</span>
               <span class="priceFreight">{treatPrice(freight)}</span>
               <Text type="h4">
-                Total em produto<span class="totalPrice">{treatPrice(totalCartProducts)}</span>
+                Total em produto
+                <span class="totalPrice">{treatPrice(totalCartProducts)}</span>
               </Text>
             </Text>
           </TotalBuy>
         </Card>
 
-        <SpaceButton>
-          <PrimaryButton>
-            <Text type="text">
-              <Text type="buttonText">Finalizar compra</Text>
-            </Text>
-          </PrimaryButton>
-        </SpaceButton>
+        <ContainerButton>
+          <SpaceButton>
+            <SecondaryButton>
+              <Text type="text">
+                <Text type="buttonText">Voltar para o carrinho</Text>
+              </Text>
+            </SecondaryButton>
+          </SpaceButton>
+          <SpaceButton>
+            <PrimaryButton>
+              <Text type="text">
+                <Text type="buttonText">Finalizar compra</Text>
+              </Text>
+            </PrimaryButton>
+          </SpaceButton>
+        </ContainerButton>
       </Container>
     </>
   );
