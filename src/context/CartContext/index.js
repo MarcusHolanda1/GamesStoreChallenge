@@ -7,15 +7,15 @@ export const CartContext = (props) => {
   const [totalCartProducts, setTotalCartProducts] = useState(0);
   const [freight, setFreight] = useState(0);
 
-  const addCartProduct = (item) => {
+  const addCartProduct = useCallback ((item) => {
     setCartProduct([...cartProducts, item]);
-  };
+  },[cartProducts]);
 
-  const removeCartProduct = (item) => {
+  const removeCartProduct = useCallback ((item) => {
     const index = cartProducts.findIndex((each) => each.id === item.id);
     cartProducts.splice(index, 1);
     setCartProduct([...cartProducts]);
-  };
+  },[cartProducts]);
 
   const calculateFreight = useCallback(() => {
     if (totalCartProducts >= Number(process.env.REACT_APP_FREIGHT_VALUE)) {

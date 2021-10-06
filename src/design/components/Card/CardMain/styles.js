@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Theme from "../../theme";
+import Theme from "../../../theme";
 
 export const DivCard = styled.div`
   display: flex;
@@ -10,10 +10,6 @@ export const DivCard = styled.div`
   background: ${Theme.colors.white};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  
-   /* &:hover{
-    transform: scale(1.1);
-  }  */
 `;
 
 export const CardButton = styled.button`

@@ -8,7 +8,7 @@ import { ContextCart } from "../../context/CartContext";
 import Header from "../../design/structures/Header";
 import Title from "../../design/components/Title";
 import SelectFilter from "../../design/components/SelectFilter";
-import Card from "../../design/components/Card";
+import Card from "../../design/components/Card/CardMain";
 import { Text } from "../../design/components/Text";
 import PrimaryButton from "../../design/components/Button/PrimaryButton";
 import ButtonCart from "../../design/components/Button/ButtonCart";
