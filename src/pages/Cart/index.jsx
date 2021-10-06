@@ -92,7 +92,7 @@ export default function Cart() {
             </SecondaryButton>
           </SpaceButton>
           <SpaceButton>
-            <PrimaryButton>
+            <PrimaryButton onClick={() => handleOnClickCart("/buydone")}>
               <Text type="text">
                 <Text type="buttonText">Finalizar compra</Text>
               </Text>
