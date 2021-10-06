@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import Header from "../../design/structures/Header";
 import ButtonCart from "../../design/components/Button/ButtonCart";
 import Title from "../../design/components/Title";
@@ -25,6 +27,10 @@ import {
 export default function Cart() {
   const { cartProducts, removeCartProduct, totalCartProducts, freight } =
     useContext(ContextCart);
+
+  const history = useHistory();
+  const handleOnClickCart = (route) => history.push(route);
+  
 
   return (
     <>
@@ -77,9 +83,9 @@ export default function Cart() {
 
         <ContainerButton>
           <SpaceButton>
-            <SecondaryButton>
+            <SecondaryButton onClick={() => handleOnClickCart("/")}>
               <Text type="text">
-                <Text type="buttonText">Voltar para o carrinho</Text>
+                <Text type="buttonText">Voltar para a loja</Text>
               </Text>
             </SecondaryButton>
           </SpaceButton>

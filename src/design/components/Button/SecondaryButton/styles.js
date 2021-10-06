@@ -7,7 +7,7 @@ export const ButtonStyle = styled.button`
   
   text-align: center;
 
-  background-color: ${Theme.colors.textSecondary};
+  background-color:  ${Theme.colors.secondary};
   border-radius: 8px;
   border: none;
   cursor: pointer;
